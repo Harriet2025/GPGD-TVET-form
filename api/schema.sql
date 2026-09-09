@@ -70,3 +70,48 @@ CREATE TABLE IF NOT EXISTS Member_Grades_table (
   graded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   FOREIGN KEY (enrollment_id) REFERENCES Enrollments_table(enrollment_id)
 );
+
+-- Artisans Registration Form (separate GPGD programme: workshop training in
+-- skilled trades). Mirrors the sections of the organization's Google Form.
+CREATE TABLE IF NOT EXISTS ArtisanApplicants_table (
+  applicant_id INT AUTO_INCREMENT PRIMARY KEY,
+
+  -- Section A: Personal Details
+  work_type VARCHAR(50) NOT NULL,
+  work_type_other VARCHAR(150) NULL,
+  training_purpose VARCHAR(500) NOT NULL,
+  full_name VARCHAR(150) NOT NULL,
+  gender VARCHAR(10) NOT NULL,
+  date_of_birth DATE NOT NULL,
+  physical_address VARCHAR(255) NOT NULL,
+  contact_number VARCHAR(30) NOT NULL,
+  email VARCHAR(255) NULL,
+  training_category VARCHAR(30) NOT NULL,
+
+  -- Section C: Educational Background
+  education_level VARCHAR(50) NOT NULL,
+  education_level_other VARCHAR(150) NULL,
+
+  -- Section D: Apprenticeship Details (only when training_category = Apprentice Trainee)
+  master_name VARCHAR(150) NULL,
+  master_specialization VARCHAR(500) NULL,
+  master_specialization_other VARCHAR(150) NULL,
+  master_contact_number VARCHAR(30) NULL,
+  workshop_name VARCHAR(150) NULL,
+  workshop_location VARCHAR(255) NULL,
+  apprenticeship_duration VARCHAR(30) NULL,
+
+  -- Section E: Skills & Professional Experience
+  main_skill_area VARCHAR(500) NOT NULL,
+  main_skill_area_other VARCHAR(150) NULL,
+  tools_owned VARCHAR(50) NOT NULL,
+
+  -- Section G: Health & Safety
+  ability_status VARCHAR(20) NOT NULL,
+
+  -- Section F: Declaration
+  declaration_confirmed TINYINT(1) NOT NULL,
+  declaration_name VARCHAR(150) NOT NULL,
+
+  submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

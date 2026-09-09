@@ -4,6 +4,25 @@ const TARGET_GROUPS = ['Student', 'IT Professional', 'Job Seeker', 'Career Chang
 const ASSESSMENT_TYPES = ['Quiz', 'Project', 'Exam', 'Assignment'];
 const GRADE_STATUSES = ['Pending', 'In Review', 'Passed', 'Failed'];
 
+// Artisans Registration Form
+const WORK_TYPES = ['Auto Mechanic', 'Electricals', 'Electronics', 'Plumbing', 'Masonry', 'Carpentry', 'Other'];
+const TRAINING_PURPOSES = ['Upgrade Skills', 'Learn Modern Technology', 'Certification', 'Start Own Business', 'Employment Opportunity'];
+const GENDERS = ['Male', 'Female'];
+const TRAINING_CATEGORIES = ['Master Trainer', 'Apprentice Trainee'];
+const EDUCATION_LEVELS = ['Tertiary', 'Vocational/Technical', 'SHS', 'JHS', 'Primary', 'Other', 'None'];
+const APPRENTICESHIP_DURATIONS = ['Less than 1 year', '1 to 2 years', '3 to 4 years', '5 or more years'];
+const MASTER_SPECIALIZATIONS = ['General Repairs & Maintenance', 'Engine Works', 'Auto Electrical', 'Body Works', 'Diagnostics', 'Other'];
+const MAIN_SKILL_AREAS = [
+    'Maintenance & Repairs', 'Electrical/Lighting Systems', 'Transmission', 'Body Work', 'Fault Diagnostics',
+    'Industrial Installation', 'Domestic Wiring', 'Solar Installation', 'Meter Installation', 'ECU Diagnostics',
+    'Pipe Fitting & Installation', 'Leak Detection & Repair', 'Drainage Systems',
+    'Blockwork & Bricklaying', 'Plastering & Rendering', 'Tiling',
+    'Furniture Making', 'Roofing & Framing', 'Wood Finishing',
+    'Other',
+];
+const TOOLS_OWNED_OPTIONS = ['Basic Electrical Tools', 'Multimeter/Testing Instruments', 'Diagnostic Scanner', 'Full Professional Kit'];
+const ABILITY_STATUSES = ['Abled', 'Disabled'];
+
 function json_response($statusCode, array $body): void
 {
     http_response_code($statusCode);

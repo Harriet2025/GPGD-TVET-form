@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Register for GPGD IT Professional Certification Programme</title>
+<title>Artisans Registration Form</title>
 <link rel="stylesheet" href="shared.css">
 <link rel="stylesheet" href="register.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +18,7 @@
       <img src="assets/logo.jpeg" alt="GPGD Logo" class="brand-logo">
       <div class="brand-text">
         <strong>GPGD</strong>
-        <span>IT Certification Programme</span>
+        <span>Artisans Registration</span>
       </div>
     </a>
     <nav class="nav-links" id="nav-links">
@@ -35,73 +35,277 @@
 
 <section class="page-banner">
   <div class="container page-banner-inner">
-    <span class="eyebrow">Join The Programme</span>
-    <h1>Register as a New Participant</h1>
-    <p>Fill in your details below to secure your place in the GPGD IT Professional Certification Programme. All fields are required.</p>
+    <span class="eyebrow">Graduates and Professionals of Ga-Dangme Network (GPGD)</span>
+    <h1>Artisans Registration Form</h1>
+    <p>Apply for workshop training in your skilled trade through GPGD Consultancy. Fields marked with an asterisk (*) are required.</p>
   </div>
 </section>
 
 <section class="register">
   <div class="container register-inner">
 
-    <form id="registration-form" class="registration-form" novalidate>
+    <form id="registration-form" class="registration-form artisan-form" novalidate>
 
-      <div class="form-row">
-        <div class="form-group">
-          <label for="firstName">First Name</label>
-          <input type="text" id="firstName" name="firstName" placeholder="Emmanuel" autocomplete="given-name">
-          <span class="error-message" id="error-firstName"></span>
+      <fieldset class="form-section">
+        <legend>Section A: Personal Details</legend>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="workType">Work Type *</label>
+            <select id="workType" name="workType">
+              <option value="" disabled selected>Select your work type</option>
+              <option value="Auto Mechanic">Auto Mechanic</option>
+              <option value="Electricals">Electricals</option>
+              <option value="Electronics">Electronics</option>
+              <option value="Plumbing">Plumbing</option>
+              <option value="Masonry">Masonry</option>
+              <option value="Carpentry">Carpentry</option>
+              <option value="Other">Other, specify</option>
+            </select>
+            <span class="error-message" id="error-workType"></span>
+          </div>
+
+          <div class="form-group" id="group-workTypeOther" hidden>
+            <label for="workTypeOther">Please specify your work type *</label>
+            <input type="text" id="workTypeOther" name="workTypeOther" placeholder="e.g. Welding">
+            <span class="error-message" id="error-workTypeOther"></span>
+          </div>
         </div>
 
         <div class="form-group">
-          <label for="lastName">Last Name</label>
-          <input type="text" id="lastName" name="lastName" placeholder="Obodai" autocomplete="family-name">
-          <span class="error-message" id="error-lastName"></span>
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" placeholder="emmanuel.obodai@example.com" autocomplete="email">
-          <span class="error-message" id="error-email"></span>
+          <label>Training Purpose *</label>
+          <div class="checkbox-grid" id="group-trainingPurpose" data-name="trainingPurpose">
+            <label class="checkbox-option"><input type="checkbox" value="Upgrade Skills"> Upgrade Skills</label>
+            <label class="checkbox-option"><input type="checkbox" value="Learn Modern Technology"> Learn Modern Technology</label>
+            <label class="checkbox-option"><input type="checkbox" value="Certification"> Certification</label>
+            <label class="checkbox-option"><input type="checkbox" value="Start Own Business"> Start Own Business</label>
+            <label class="checkbox-option"><input type="checkbox" value="Employment Opportunity"> Employment Opportunity</label>
+          </div>
+          <span class="error-message" id="error-trainingPurpose"></span>
         </div>
 
-        <div class="form-group">
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" placeholder="+233 20 000 0000" autocomplete="tel">
-          <span class="error-message" id="error-phone"></span>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fullName">Full Name *</label>
+            <input type="text" id="fullName" name="fullName" placeholder="Emmanuel Obodai" autocomplete="name">
+            <span class="error-message" id="error-fullName"></span>
+          </div>
+          <div class="form-group">
+            <label for="gender">Gender *</label>
+            <select id="gender" name="gender">
+              <option value="" disabled selected>Select gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+            <span class="error-message" id="error-gender"></span>
+          </div>
         </div>
-      </div>
 
-      <div class="form-row">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="dateOfBirth">Date of Birth *</label>
+            <input type="date" id="dateOfBirth" name="dateOfBirth">
+            <span class="error-message" id="error-dateOfBirth"></span>
+          </div>
+          <div class="form-group">
+            <label for="contactNumber">Contact Number *</label>
+            <input type="tel" id="contactNumber" name="contactNumber" placeholder="+233 20 000 0000" autocomplete="tel">
+            <span class="error-message" id="error-contactNumber"></span>
+          </div>
+        </div>
+
         <div class="form-group">
-          <label for="targetGroup">Target Group</label>
-          <select id="targetGroup" name="targetGroup">
-            <option value="" disabled selected>Select your target group</option>
-            <option value="Student">Student</option>
-            <option value="IT Professional">IT Professional</option>
-            <option value="Job Seeker">Job Seeker</option>
-            <option value="Career Changer">Career Changer</option>
-            <option value="Entrepreneur">Entrepreneur</option>
-            <option value="Other">Other</option>
+          <label for="physicalAddress">Physical Address *</label>
+          <input type="text" id="physicalAddress" name="physicalAddress" placeholder="House number, street, town">
+          <span class="error-message" id="error-physicalAddress"></span>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email Address (optional)</label>
+            <input type="email" id="email" name="email" placeholder="emmanuel.obodai@example.com" autocomplete="email">
+            <span class="error-message" id="error-email"></span>
+          </div>
+          <div class="form-group">
+            <label for="trainingCategory">Training Category *</label>
+            <select id="trainingCategory" name="trainingCategory">
+              <option value="" disabled selected>Select training category</option>
+              <option value="Master Trainer">Master Trainer</option>
+              <option value="Apprentice Trainee">Apprentice Trainee</option>
+            </select>
+            <span class="error-message" id="error-trainingCategory"></span>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-section">
+        <legend>Section C: Educational Background</legend>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="educationLevel">Highest Education Level *</label>
+            <select id="educationLevel" name="educationLevel">
+              <option value="" disabled selected>Select education level</option>
+              <option value="Tertiary">Tertiary</option>
+              <option value="Vocational/Technical">Vocational/Technical</option>
+              <option value="SHS">SHS</option>
+              <option value="JHS">JHS</option>
+              <option value="Primary">Primary</option>
+              <option value="None">None</option>
+              <option value="Other">Other, specify</option>
+            </select>
+            <span class="error-message" id="error-educationLevel"></span>
+          </div>
+
+          <div class="form-group" id="group-educationLevelOther" hidden>
+            <label for="educationLevelOther">Please specify *</label>
+            <input type="text" id="educationLevelOther" name="educationLevelOther">
+            <span class="error-message" id="error-educationLevelOther"></span>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-section" id="section-apprenticeship" hidden>
+        <legend>Section D: Apprenticeship Details</legend>
+        <p class="section-note">Only required if your Training Category is Apprentice Trainee.</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="masterName">Master's Name *</label>
+            <input type="text" id="masterName" name="masterName">
+            <span class="error-message" id="error-masterName"></span>
+          </div>
+          <div class="form-group">
+            <label for="masterContactNumber">Master's Contact Number *</label>
+            <input type="tel" id="masterContactNumber" name="masterContactNumber">
+            <span class="error-message" id="error-masterContactNumber"></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Master's Specialization *</label>
+          <div class="checkbox-grid" id="group-masterSpecialization" data-name="masterSpecialization">
+            <label class="checkbox-option"><input type="checkbox" value="General Repairs &amp; Maintenance"> General Repairs &amp; Maintenance</label>
+            <label class="checkbox-option"><input type="checkbox" value="Engine Works"> Engine Works</label>
+            <label class="checkbox-option"><input type="checkbox" value="Auto Electrical"> Auto Electrical</label>
+            <label class="checkbox-option"><input type="checkbox" value="Body Works"> Body Works</label>
+            <label class="checkbox-option"><input type="checkbox" value="Diagnostics"> Diagnostics</label>
+            <label class="checkbox-option"><input type="checkbox" value="Other" data-other-toggle="group-masterSpecializationOther"> Other, specify</label>
+          </div>
+          <span class="error-message" id="error-masterSpecialization"></span>
+        </div>
+
+        <div class="form-group" id="group-masterSpecializationOther" hidden>
+          <label for="masterSpecializationOther">Please specify *</label>
+          <input type="text" id="masterSpecializationOther" name="masterSpecializationOther">
+          <span class="error-message" id="error-masterSpecializationOther"></span>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="workshopName">Workshop or Company Name *</label>
+            <input type="text" id="workshopName" name="workshopName">
+            <span class="error-message" id="error-workshopName"></span>
+          </div>
+          <div class="form-group">
+            <label for="workshopLocation">Workshop Location *</label>
+            <input type="text" id="workshopLocation" name="workshopLocation">
+            <span class="error-message" id="error-workshopLocation"></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="apprenticeshipDuration">Apprenticeship Duration *</label>
+          <select id="apprenticeshipDuration" name="apprenticeshipDuration">
+            <option value="" disabled selected>Select duration</option>
+            <option value="Less than 1 year">Less than 1 year</option>
+            <option value="1 to 2 years">1 to 2 years</option>
+            <option value="3 to 4 years">3 to 4 years</option>
+            <option value="5 or more years">5 or more years</option>
           </select>
-          <span class="error-message" id="error-targetGroup"></span>
+          <span class="error-message" id="error-apprenticeshipDuration"></span>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-section">
+        <legend>Section E: Skills &amp; Professional Experience</legend>
+
+        <div class="form-group">
+          <label>Main Skill Area *</label>
+          <div class="checkbox-grid" id="group-mainSkillArea" data-name="mainSkillArea">
+            <label class="checkbox-option"><input type="checkbox" value="Maintenance & Repairs"> Maintenance &amp; Repairs</label>
+            <label class="checkbox-option"><input type="checkbox" value="Electrical/Lighting Systems"> Electrical/Lighting Systems</label>
+            <label class="checkbox-option"><input type="checkbox" value="Transmission"> Transmission</label>
+            <label class="checkbox-option"><input type="checkbox" value="Body Work"> Body Work</label>
+            <label class="checkbox-option"><input type="checkbox" value="Fault Diagnostics"> Fault Diagnostics</label>
+            <label class="checkbox-option"><input type="checkbox" value="Industrial Installation"> Industrial Installation</label>
+            <label class="checkbox-option"><input type="checkbox" value="Domestic Wiring"> Domestic Wiring</label>
+            <label class="checkbox-option"><input type="checkbox" value="Solar Installation"> Solar Installation</label>
+            <label class="checkbox-option"><input type="checkbox" value="Meter Installation"> Meter Installation</label>
+            <label class="checkbox-option"><input type="checkbox" value="ECU Diagnostics"> ECU Diagnostics</label>
+            <label class="checkbox-option"><input type="checkbox" value="Pipe Fitting & Installation"> Pipe Fitting &amp; Installation</label>
+            <label class="checkbox-option"><input type="checkbox" value="Leak Detection & Repair"> Leak Detection &amp; Repair</label>
+            <label class="checkbox-option"><input type="checkbox" value="Drainage Systems"> Drainage Systems</label>
+            <label class="checkbox-option"><input type="checkbox" value="Blockwork & Bricklaying"> Blockwork &amp; Bricklaying</label>
+            <label class="checkbox-option"><input type="checkbox" value="Plastering & Rendering"> Plastering &amp; Rendering</label>
+            <label class="checkbox-option"><input type="checkbox" value="Tiling"> Tiling</label>
+            <label class="checkbox-option"><input type="checkbox" value="Furniture Making"> Furniture Making</label>
+            <label class="checkbox-option"><input type="checkbox" value="Roofing & Framing"> Roofing &amp; Framing</label>
+            <label class="checkbox-option"><input type="checkbox" value="Wood Finishing"> Wood Finishing</label>
+            <label class="checkbox-option"><input type="checkbox" value="Other" data-other-toggle="group-mainSkillAreaOther"> Other, specify</label>
+          </div>
+          <span class="error-message" id="error-mainSkillArea"></span>
+        </div>
+
+        <div class="form-group" id="group-mainSkillAreaOther" hidden>
+          <label for="mainSkillAreaOther">Please specify *</label>
+          <input type="text" id="mainSkillAreaOther" name="mainSkillAreaOther">
+          <span class="error-message" id="error-mainSkillAreaOther"></span>
         </div>
 
         <div class="form-group">
-          <label for="level">Level</label>
-          <select id="level" name="level">
-            <option value="" disabled selected>Select your level</option>
-            <option value="1">Level 1</option>
-            <option value="2">Level 2</option>
-            <option value="3">Level 3</option>
-            <option value="4">Level 4</option>
-            <option value="5">Level 5</option>
+          <label for="toolsOwned">Tools Owned *</label>
+          <select id="toolsOwned" name="toolsOwned">
+            <option value="" disabled selected>Select tools owned</option>
+            <option value="Basic Electrical Tools">Basic Electrical Tools</option>
+            <option value="Multimeter/Testing Instruments">Multimeter/Testing Instruments</option>
+            <option value="Diagnostic Scanner">Diagnostic Scanner</option>
+            <option value="Full Professional Kit">Full Professional Kit</option>
           </select>
-          <span class="error-message" id="error-level"></span>
+          <span class="error-message" id="error-toolsOwned"></span>
         </div>
-      </div>
+      </fieldset>
+
+      <fieldset class="form-section">
+        <legend>Section G: Health &amp; Safety</legend>
+        <div class="form-group">
+          <label for="abilityStatus">Ability Status *</label>
+          <select id="abilityStatus" name="abilityStatus">
+            <option value="" disabled selected>Select ability status</option>
+            <option value="Abled">Abled</option>
+            <option value="Disabled">Disabled</option>
+          </select>
+          <span class="error-message" id="error-abilityStatus"></span>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-section">
+        <legend>Section F: Declaration</legend>
+
+        <div class="form-group">
+          <label class="checkbox-option declaration-checkbox">
+            <input type="checkbox" id="declarationConfirmed" name="declarationConfirmed">
+            I confirm that the information provided in this form is true and accurate to the best of my knowledge. *
+          </label>
+          <span class="error-message" id="error-declarationConfirmed"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="declarationName">Your Name *</label>
+          <input type="text" id="declarationName" name="declarationName" placeholder="Type your full name to confirm">
+          <span class="error-message" id="error-declarationName"></span>
+        </div>
+      </fieldset>
 
       <button type="submit" class="btn btn-primary btn-submit" id="submit-btn">
         <span class="btn-text">Submit Registration</span>
@@ -109,13 +313,6 @@
 
       <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
     </form>
-
-    <aside class="register-aside">
-      <img src="assets/logo.jpeg" alt="GPGD Logo" class="register-aside-logo">
-      <h3>Backed by GPGD</h3>
-      <p>Your registration connects you to the wider Graduates and Professionals of Ga-Dangme Network, a community invested in your growth beyond certification.</p>
-      <a href="about.html" class="register-aside-link">Learn more about GPGD &rarr;</a>
-    </aside>
   </div>
 </section>
 
@@ -126,7 +323,7 @@
         <img src="assets/logo.jpeg" alt="GPGD Logo">
         <div>
           <h4>Graduates and Professionals of Ga-Dangme Network</h4>
-          <p>A professional network uniting Ga-Dangme graduates and professionals, building skills and opportunity through structured, practical IT certification.</p>
+          <p>A professional network uniting Ga-Dangme graduates and professionals, building skills and opportunity through structured, practical training.</p>
         </div>
       </div>
       <div class="footer-col">
