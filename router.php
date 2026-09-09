@@ -11,6 +11,10 @@ $routes = [
     '/api/enroll'             => __DIR__ . '/api/enroll.php',
     '/api/grades'             => __DIR__ . '/api/grades.php',
     '/api/admin/enrollments'  => __DIR__ . '/api/admin_enrollments.php',
+    '/api/admin/applicants'   => __DIR__ . '/api/admin_applicants.php',
+    '/api/admin/login'        => __DIR__ . '/api/admin_login.php',
+    '/api/admin/logout'       => __DIR__ . '/api/admin_logout.php',
+    '/api/admin/session'      => __DIR__ . '/api/admin_session.php',
 ];
 
 if (isset($routes[$path])) {

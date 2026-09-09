@@ -1,8 +1,10 @@
 <?php
 require_once __DIR__ . '/helpers.php';
+require_once __DIR__ . '/admin_auth.php';
 require_once __DIR__ . '/db.php';
 
 require_method('GET');
+require_admin_session();
 
 try {
     $pdo = get_db_connection();

@@ -27,6 +27,106 @@ body {
   font-size: 14px;
 }
 
+/* Login screen */
+
+.login-screen {
+  min-height: calc(100vh - 140px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 380px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 36px 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.login-logo {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  padding: 6px;
+  margin-bottom: 10px;
+}
+
+.login-card h1 {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.login-card p {
+  font-size: 13.5px;
+  color: var(--color-muted);
+  margin-bottom: 14px;
+}
+
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+.login-form .btn {
+  width: 100%;
+  margin-top: 4px;
+}
+
+/* Details modal */
+
+.modal-wide {
+  max-width: 560px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.modal-details h3 {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-primary);
+  margin: 18px 0 8px;
+}
+
+.modal-details h3:first-child {
+  margin-top: 0;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 13.5px;
+}
+
+.detail-label {
+  color: var(--color-muted);
+  flex-shrink: 0;
+}
+
+.detail-value {
+  text-align: right;
+  color: var(--color-ink);
+  font-weight: 500;
+}
+
 /* Main */
 
 .admin-main {

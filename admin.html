@@ -24,50 +24,67 @@
 
     <nav class="nav-links" id="nav-links">
       <a href="index.html">Home</a>
-      <a href="dashboard.html">Dashboard</a>
-      <a href="admin.html" class="active">Grade Management</a>
+      <a href="admin.html" class="active">Registered Applicants</a>
     </nav>
 
     <div class="dash-user">
-      <span class="member-name">Admin</span>
-      <div class="member-avatar">A</div>
+      <button type="button" id="logout-btn" class="btn btn-secondary" hidden>Log Out</button>
       <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
     </div>
   </div>
 </header>
 
-<main class="admin-main">
+<section id="login-screen" class="login-screen">
+  <div class="login-card">
+    <img src="assets/logo.jpeg" alt="GPGD Logo" class="login-logo">
+    <h1>Admin Login</h1>
+    <p>Sign in to view registered artisan applicants.</p>
+
+    <form id="login-form" class="login-form">
+      <div class="form-group">
+        <label for="login-username">Username</label>
+        <input type="text" id="login-username" name="username" autocomplete="username">
+      </div>
+      <div class="form-group">
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" name="password" autocomplete="current-password">
+      </div>
+      <button type="submit" class="btn btn-primary" id="login-btn">Log In</button>
+      <div id="login-status" class="form-status" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</section>
+
+<main class="admin-main" id="admin-main" hidden>
   <div class="container">
     <div class="admin-heading">
       <div>
-        <h1>Workshop Assessment &amp; Grade Management</h1>
-        <p>Review workshop enrollments and record scores for each assessment.</p>
+        <h1>Registered Artisan Applicants</h1>
+        <p>Everyone who has submitted the Artisans Registration Form.</p>
       </div>
       <div class="admin-toolbar">
-        <input type="search" id="search-input" class="search-input" placeholder="Search by name, email, or track...">
-        <select id="status-filter" class="status-filter">
-          <option value="">All Statuses</option>
-          <option value="Pending">Pending</option>
-          <option value="In Review">In Review</option>
-          <option value="Passed">Passed</option>
-          <option value="Failed">Failed</option>
+        <input type="search" id="search-input" class="search-input" placeholder="Search by name, work type, or contact...">
+        <select id="category-filter" class="status-filter">
+          <option value="">All Categories</option>
+          <option value="Master Trainer">Master Trainer</option>
+          <option value="Apprentice Trainee">Apprentice Trainee</option>
         </select>
         <button type="button" id="refresh-btn" class="btn btn-secondary">Refresh</button>
       </div>
     </div>
 
-    <div id="table-status" class="table-status">Loading enrollments...</div>
+    <div id="table-status" class="table-status">Loading applicants...</div>
 
     <div class="table-wrapper">
       <table class="data-table">
         <thead>
           <tr>
-            <th>Student</th>
-            <th>Email</th>
-            <th>Track</th>
-            <th>Assessment</th>
-            <th>Score</th>
-            <th>Status</th>
+            <th>Full Name</th>
+            <th>Work Type</th>
+            <th>Training Category</th>
+            <th>Contact Number</th>
+            <th>Education Level</th>
+            <th>Submitted</th>
             <th class="col-action">Action</th>
           </tr>
         </thead>
@@ -77,52 +94,18 @@
   </div>
 </main>
 
-<div id="grade-modal" class="modal-overlay" hidden>
-  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+<div id="details-modal" class="modal-overlay" hidden>
+  <div class="modal modal-wide" role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <div class="modal-header">
-      <h2 id="modal-title">Enter Score</h2>
+      <h2 id="modal-title">Applicant Details</h2>
       <button type="button" class="modal-close" id="modal-close-btn" aria-label="Close">&times;</button>
     </div>
 
-    <form id="grade-form" class="modal-form">
-      <div class="modal-student-info">
-        <strong id="modal-student-name"></strong>
-        <span id="modal-track-name"></span>
-      </div>
+    <div id="modal-body" class="modal-details"></div>
 
-      <div class="form-group">
-        <label for="modal-assessment-type">Assessment Type</label>
-        <select id="modal-assessment-type" name="assessmentType">
-          <option value="Quiz">Quiz</option>
-          <option value="Project">Project</option>
-          <option value="Exam">Exam</option>
-          <option value="Assignment">Assignment</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="modal-score">Score (0 to 100)</label>
-        <input type="number" id="modal-score" name="score" min="0" max="100" step="1" placeholder="e.g. 85">
-        <span class="error-message" id="error-modal-score"></span>
-      </div>
-
-      <div class="form-group">
-        <label for="modal-status">Status</label>
-        <select id="modal-status" name="status">
-          <option value="Pending">Pending</option>
-          <option value="In Review">In Review</option>
-          <option value="Passed">Passed</option>
-          <option value="Failed">Failed</option>
-        </select>
-      </div>
-
-      <div class="modal-actions">
-        <button type="button" class="btn btn-secondary" id="modal-cancel-btn">Cancel</button>
-        <button type="submit" class="btn btn-primary" id="modal-save-btn">Save Score</button>
-      </div>
-
-      <div id="modal-status-message" class="form-status" role="status" aria-live="polite"></div>
-    </form>
+    <div class="modal-actions">
+      <button type="button" class="btn btn-secondary" id="modal-close-btn-2">Close</button>
+    </div>
   </div>
 </div>
 

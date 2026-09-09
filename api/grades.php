@@ -1,11 +1,13 @@
 <?php
 require_once __DIR__ . '/helpers.php';
+require_once __DIR__ . '/admin_auth.php';
 require_once __DIR__ . '/db.php';
 
 $method = $_SERVER['REQUEST_METHOD'];
 if ($method !== 'POST' && $method !== 'PUT') {
     json_response(405, ['message' => 'Method not allowed. Expected POST or PUT.']);
 }
+require_admin_session();
 
 $body = read_json_body();
 

@@ -6,6 +6,17 @@ CREATE DATABASE IF NOT EXISTS gpgd_it_program
 
 USE gpgd_it_program;
 
+CREATE TABLE IF NOT EXISTS AdminUsers_table (
+  admin_id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(100) NOT NULL UNIQUE,
+  password_hash VARCHAR(255) NOT NULL,
+  is_active TINYINT(1) NOT NULL DEFAULT 1,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT IGNORE INTO AdminUsers_table (username, password_hash, is_active) VALUES
+  ('admin', '$2y$10$U5an0NFJHycyB/Z5qgJ2s./fvogBFgcV/CgURwevRuEg2X/WZ/z6y', 1);
+
 CREATE TABLE IF NOT EXISTS Levels_table (
   level_id INT PRIMARY KEY,
   level_name VARCHAR(50) NOT NULL
