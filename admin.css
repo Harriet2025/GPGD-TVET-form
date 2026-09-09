@@ -2,6 +2,10 @@ body {
   background: var(--color-surface-alt);
 }
 
+[hidden] {
+  display: none !important;
+}
+
 .dash-user {
   display: flex;
   align-items: center;
