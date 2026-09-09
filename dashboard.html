@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Participant Dashboard for GPGD IT Professional Certification Programme</title>
+<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="dashboard.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand">
+      <img src="assets/logo.jpeg" alt="GPGD Logo" class="brand-logo">
+      <div class="brand-text">
+        <strong>GPGD</strong>
+        <span>Participant Dashboard</span>
+      </div>
+    </a>
+
+    <nav class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html" class="active">Dashboard</a>
+      <a href="about.html">About</a>
+    </nav>
+
+    <div class="dash-user">
+      <span id="member-name" class="member-name">Member</span>
+      <div class="member-avatar" id="member-avatar">M</div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+    </div>
+  </div>
+</header>
+
+<main class="dash-main">
+  <div class="container">
+    <div class="dash-heading">
+      <h1>Available Program Tracks</h1>
+      <p>Browse active tracks below and enroll in the one that matches your goals.</p>
+    </div>
+
+    <div id="tracks-status" class="tracks-status">Loading tracks...</div>
+
+    <section id="tracks-grid" class="tracks-grid" aria-live="polite"></section>
+  </div>
+</main>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="nav.js"></script>
+<script src="dashboard.js"></script>
+</body>
+</html>

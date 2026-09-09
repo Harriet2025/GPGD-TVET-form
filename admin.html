@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel for GPGD IT Professional Certification Programme</title>
+<link rel="stylesheet" href="shared.css">
+<link rel="stylesheet" href="admin.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand">
+      <img src="assets/logo.jpeg" alt="GPGD Logo" class="brand-logo">
+      <div class="brand-text">
+        <strong>GPGD</strong>
+        <span>Admin Panel</span>
+      </div>
+    </a>
+
+    <nav class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="admin.html" class="active">Grade Management</a>
+    </nav>
+
+    <div class="dash-user">
+      <span class="member-name">Admin</span>
+      <div class="member-avatar">A</div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+    </div>
+  </div>
+</header>
+
+<main class="admin-main">
+  <div class="container">
+    <div class="admin-heading">
+      <div>
+        <h1>Assessment &amp; Grade Management</h1>
+        <p>Review enrollments and record scores for each assessment.</p>
+      </div>
+      <div class="admin-toolbar">
+        <input type="search" id="search-input" class="search-input" placeholder="Search by name, email, or track...">
+        <select id="status-filter" class="status-filter">
+          <option value="">All Statuses</option>
+          <option value="Pending">Pending</option>
+          <option value="In Review">In Review</option>
+          <option value="Passed">Passed</option>
+          <option value="Failed">Failed</option>
+        </select>
+        <button type="button" id="refresh-btn" class="btn btn-secondary">Refresh</button>
+      </div>
+    </div>
+
+    <div id="table-status" class="table-status">Loading enrollments...</div>
+
+    <div class="table-wrapper">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Student</th>
+            <th>Email</th>
+            <th>Track</th>
+            <th>Assessment</th>
+            <th>Score</th>
+            <th>Status</th>
+            <th class="col-action">Action</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+<div id="grade-modal" class="modal-overlay" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-header">
+      <h2 id="modal-title">Enter Score</h2>
+      <button type="button" class="modal-close" id="modal-close-btn" aria-label="Close">&times;</button>
+    </div>
+
+    <form id="grade-form" class="modal-form">
+      <div class="modal-student-info">
+        <strong id="modal-student-name"></strong>
+        <span id="modal-track-name"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="modal-assessment-type">Assessment Type</label>
+        <select id="modal-assessment-type" name="assessmentType">
+          <option value="Quiz">Quiz</option>
+          <option value="Project">Project</option>
+          <option value="Exam">Exam</option>
+          <option value="Assignment">Assignment</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="modal-score">Score (0 to 100)</label>
+        <input type="number" id="modal-score" name="score" min="0" max="100" step="1" placeholder="e.g. 85">
+        <span class="error-message" id="error-modal-score"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="modal-status">Status</label>
+        <select id="modal-status" name="status">
+          <option value="Pending">Pending</option>
+          <option value="In Review">In Review</option>
+          <option value="Passed">Passed</option>
+          <option value="Failed">Failed</option>
+        </select>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="modal-cancel-btn">Cancel</button>
+        <button type="submit" class="btn btn-primary" id="modal-save-btn">Save Score</button>
+      </div>
+
+      <div id="modal-status-message" class="form-status" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="nav.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

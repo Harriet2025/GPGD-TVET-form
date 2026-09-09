@@ -1,0 +1,187 @@
+body {
+  background: var(--color-surface-alt);
+}
+
+.dash-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.member-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.member-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* Main content */
+
+.dash-main {
+  padding: 48px 0 80px;
+}
+
+.dash-heading {
+  margin-bottom: 32px;
+}
+
+.dash-heading h1 {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+}
+
+.dash-heading p {
+  font-size: 15px;
+  color: var(--color-body);
+  margin: 0;
+}
+
+.tracks-status {
+  font-size: 14px;
+  color: var(--color-muted);
+  padding: 12px 0;
+}
+
+.tracks-status.error {
+  color: var(--color-danger);
+}
+
+.tracks-status[hidden] {
+  display: none;
+}
+
+/* Track grid & cards */
+
+.tracks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.track-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.track-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.track-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.track-code {
+  display: inline-flex;
+  align-self: flex-start;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.track-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin: 0;
+}
+
+.track-duration {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--color-muted);
+}
+
+.track-duration svg {
+  flex-shrink: 0;
+}
+
+.track-enroll-btn {
+  margin-top: auto;
+  width: 100%;
+  padding: 11px 20px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.track-enroll-btn:hover:not(:disabled) {
+  background: var(--color-primary-dark);
+}
+
+.track-enroll-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.track-enroll-btn.enrolled {
+  background: var(--color-success);
+}
+
+/* Skeleton loading cards */
+
+.track-card.skeleton {
+  gap: 12px;
+}
+
+.skeleton-line {
+  height: 12px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #eef1f5 25%, #e4e7ec 37%, #eef1f5 63%);
+  background-size: 400% 100%;
+  animation: skeleton-shimmer 1.4s ease infinite;
+}
+
+.skeleton-line.w-40 { width: 40%; }
+.skeleton-line.w-70 { width: 70%; }
+.skeleton-line.w-50 { width: 50%; height: 36px; margin-top: 8px; border-radius: 8px; }
+
+@keyframes skeleton-shimmer {
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0 50%; }
+}
+
+/* Responsive */
+
+@media (max-width: 480px) {
+  .tracks-grid {
+    grid-template-columns: 1fr;
+  }
+}
