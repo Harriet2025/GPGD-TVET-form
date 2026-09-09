@@ -1,0 +1,11 @@
+RewriteEngine On
+
+RewriteRule ^api/register$ api/register.php [L]
+RewriteRule ^api/tracks$ api/tracks.php [L]
+RewriteRule ^api/enroll$ api/enroll.php [L]
+RewriteRule ^api/grades$ api/grades.php [L]
+RewriteRule ^api/admin/enrollments$ api/admin_enrollments.php [L]
+RewriteRule ^api/admin/applicants$ api/admin_applicants.php [L]
+RewriteRule ^api/admin/login$ api/admin_login.php [L]
+RewriteRule ^api/admin/logout$ api/admin_logout.php [L]
+RewriteRule ^api/admin/session$ api/admin_session.php [L]

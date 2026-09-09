@@ -155,6 +155,10 @@ body {
   margin: 0;
 }
 
+.admin-section-heading {
+  margin-top: 48px;
+}
+
 .admin-toolbar {
   display: flex;
   gap: 10px;

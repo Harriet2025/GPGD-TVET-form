@@ -1,5 +1,5 @@
-const TRACKS_ENDPOINT = "/api/tracks";
-const ENROLL_ENDPOINT = "/api/enroll";
+const TRACKS_ENDPOINT = "api/tracks";
+const ENROLL_ENDPOINT = "api/enroll";
 
 const tracksGrid = document.getElementById("tracks-grid");
 const tracksStatus = document.getElementById("tracks-status");

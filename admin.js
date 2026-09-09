@@ -1,7 +1,8 @@
-const SESSION_ENDPOINT = "/api/admin/session";
-const LOGIN_ENDPOINT = "/api/admin/login";
-const LOGOUT_ENDPOINT = "/api/admin/logout";
-const APPLICANTS_ENDPOINT = "/api/admin/applicants";
+const SESSION_ENDPOINT = "api/admin/session";
+const LOGIN_ENDPOINT = "api/admin/login";
+const LOGOUT_ENDPOINT = "api/admin/logout";
+const APPLICANTS_ENDPOINT = "api/admin/applicants";
+const ENROLLMENTS_ENDPOINT = "api/admin/enrollments";
 
 const loginScreen = document.getElementById("login-screen");
 const loginForm = document.getElementById("login-form");
@@ -15,6 +16,8 @@ const tableStatus = document.getElementById("table-status");
 const searchInput = document.getElementById("search-input");
 const categoryFilter = document.getElementById("category-filter");
 const refreshBtn = document.getElementById("refresh-btn");
+const enrollmentStatus = document.getElementById("enrollment-status");
+const enrollmentTableBody = document.getElementById("enrollment-table-body");
 const toast = document.getElementById("toast");
 
 const detailsModal = document.getElementById("details-modal");
@@ -43,6 +46,7 @@ function showLoggedInUI() {
   adminMain.hidden = false;
   logoutBtn.hidden = false;
   loadApplicants();
+  loadEnrollments();
 }
 
 function showLoggedOutUI() {
@@ -272,6 +276,51 @@ async function loadApplicants() {
     tableStatus.textContent = error.message || "Something went wrong while loading applicants.";
   } finally {
     refreshBtn.disabled = false;
+  }
+}
+
+function renderEnrollments(enrollments) {
+  if (enrollments.length === 0) {
+    enrollmentStatus.textContent = "No enrolments have been created yet.";
+    enrollmentTableBody.innerHTML = "";
+    return;
+  }
+
+  enrollmentStatus.textContent = `${enrollments.length} enrolment${enrollments.length === 1 ? "" : "s"} found.`;
+  enrollmentTableBody.innerHTML = enrollments.map((enrollment) => `
+    <tr>
+      <td><strong>${escapeHtml(enrollment.student_name)}</strong><br><span class="cell-muted">${escapeHtml(enrollment.student_email)}</span></td>
+      <td>${escapeHtml(enrollment.track_code)} - ${escapeHtml(enrollment.track_title)}</td>
+      <td>${escapeHtml(enrollment.status || "Pending")}</td>
+      <td>${enrollment.score === null ? "-" : escapeHtml(String(enrollment.score))}</td>
+    </tr>
+  `).join("");
+}
+
+async function loadEnrollments() {
+  enrollmentStatus.textContent = "Loading enrolments...";
+  enrollmentStatus.classList.remove("error");
+  enrollmentTableBody.innerHTML = "";
+
+  try {
+    const response = await fetch(ENROLLMENTS_ENDPOINT, {
+      headers: { Accept: "application/json" },
+    });
+
+    if (response.status === 401) {
+      showLoggedOutUI();
+      return;
+    }
+
+    if (!response.ok) {
+      throw new Error(`Failed to load enrolments (status ${response.status}).`);
+    }
+
+    const data = await response.json();
+    renderEnrollments(Array.isArray(data) ? data : []);
+  } catch (error) {
+    enrollmentStatus.classList.add("error");
+    enrollmentStatus.textContent = error.message || "Something went wrong while loading enrolments.";
   }
 }
 

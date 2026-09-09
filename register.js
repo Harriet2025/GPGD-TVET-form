@@ -1,4 +1,4 @@
-const API_ENDPOINT = "/api/register";
+const API_ENDPOINT = "api/register";
 
 const form = document.getElementById("registration-form");
 const submitBtn = document.getElementById("submit-btn");
