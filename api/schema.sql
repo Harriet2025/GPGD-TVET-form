@@ -39,16 +39,16 @@ CREATE TABLE IF NOT EXISTS Tracks_table (
 );
 
 INSERT IGNORE INTO Tracks_table (code, title, duration, is_active) VALUES
-  ('TRKA', 'Track A: Web Development Fundamentals', '6 weeks', 1),
-  ('TRKB', 'Track B: Data Analysis & Visualization', '6 weeks', 1),
-  ('TRKC', 'Track C: Cloud Computing Essentials', '8 weeks', 1),
-  ('TRKD', 'Track D: Cybersecurity Foundations', '8 weeks', 1),
-  ('TRKE', 'Track E: Mobile App Development', '8 weeks', 1),
-  ('TRKF', 'Track F: Database Design & SQL', '6 weeks', 1),
-  ('TRKG', 'Track G: Network Administration', '8 weeks', 1),
-  ('TRKH', 'Track H: UI/UX Design Principles', '6 weeks', 1),
-  ('TRKI', 'Track I: DevOps & Automation', '8 weeks', 1),
-  ('TRKJ', 'Track J: IT Project Management', '6 weeks', 1);
+  ('TRKA', 'Track A: Auto Mechanic Fundamentals', '6 weeks', 1),
+  ('TRKB', 'Track B: Electrical Installation and Wiring', '8 weeks', 1),
+  ('TRKC', 'Track C: Electronics Repair and Maintenance', '6 weeks', 1),
+  ('TRKD', 'Track D: Plumbing Systems and Installation', '6 weeks', 1),
+  ('TRKE', 'Track E: Masonry and Blockwork', '8 weeks', 1),
+  ('TRKF', 'Track F: Carpentry and Joinery', '8 weeks', 1),
+  ('TRKG', 'Track G: Solar Installation and Maintenance', '6 weeks', 1),
+  ('TRKH', 'Track H: Diagnostics and Fault Finding', '6 weeks', 1),
+  ('TRKI', 'Track I: Workshop Safety and Tool Handling', '4 weeks', 1),
+  ('TRKJ', 'Track J: Business Skills for Artisans', '4 weeks', 1);
 
 CREATE TABLE IF NOT EXISTS Enrollments_table (
   enrollment_id INT AUTO_INCREMENT PRIMARY KEY,
